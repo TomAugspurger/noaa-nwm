@@ -4,3 +4,9 @@ __pycache__
 .terraform.tfstate.lock.info
 terraform.tfstate
 terraform.tfstate.backup
+.cache
+.config
+.ipython
+.jupyter
+.local
+deploy/secrets.yaml

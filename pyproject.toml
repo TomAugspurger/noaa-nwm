@@ -14,6 +14,12 @@ dependencies = [
     "pyarrow",
     "fastparquet",
     "adlfs",
-    "dask[complete]",
+    "dask[complete]==2023.3.1",
     "h5py",
+    "dask-kubernetes",
+    "jupyter",
+    "notebook",
+    "jupyterlab",
+    "xarray",
+    "dask-geopandas"
 ]

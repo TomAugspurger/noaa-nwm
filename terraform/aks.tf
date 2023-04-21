@@ -82,6 +82,29 @@ resource "azurerm_kubernetes_cluster" "nwm" {
 }
 
 
+resource "azurerm_kubernetes_cluster_node_pool" "user_pool" {
+  name                  = "users"
+  kubernetes_cluster_id = azurerm_kubernetes_cluster.nwm.id
+  vm_size               = "Standard_D8s_v3"
+  enable_auto_scaling   = true
+  vnet_subnet_id        = azurerm_subnet.node_subnet.id
+
+  node_labels = {
+    "hub.jupyter.og/node-purpose" = "user",
+  }
+
+  min_count = 0
+  max_count = 100
+
+  lifecycle {
+    ignore_changes = [
+      node_count,
+    ]
+  }
+
+}
+
+
 resource "azurerm_kubernetes_cluster_node_pool" "worker_pool" {
   name                  = "cpuworker"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.nwm.id

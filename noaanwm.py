@@ -11,8 +11,6 @@ The 'reservoir' data is tabular-ish?
 In [107]: x = xr.open_dataset(fsspec.open("https://noaanwm.blob.core.windows.net/nwm/nwm.20230401/short_range/nwm.t00z.short_range.reservoir.f001.conus.nc").open())
 In [108]: df = geopandas.GeoDataFrame(x.drop_vars(["crs", "latitude", "longitude"]).to_dataframe(), geometry=geopandas.points_from_xy(x.longitude, x.latitude))
 ```
-
-
 """
 from typing import Any
 import typing
@@ -21,6 +19,10 @@ import kerchunk.hdf
 import kerchunk.combine
 
 import adlfs
+import numpy as np
+import pyproj
+import geopandas
+import azure.storage.blob
 import kerchunk.hdf
 import kerchunk.combine
 import adlfs
@@ -33,7 +35,11 @@ import tlz
 import enum
 
 
+__version__ = "0.1.0"
+
 STORAGE_OPTIONS = dict(account_name="noaanwm")
+CYCLE_RUNTIMES = list(range(23))
+
 
 # fs = adlfs.AzureBlobFileSystem("noaanwm")
 # storage_options = {"account_name": "noaanwm"}
@@ -51,7 +57,6 @@ def make_prefix(date, product, cycle_runtime):
 
 def make_url(date, product, cycle_runtime, kind, forecast_time):
     """
-
     >>> channel_rt = xr.open_dataset(fsspec.open(make_url(date, "short_range", 0, "channel_rt", 1)).open())
     """
     prefix = make_prefix(date, product, cycle_runtime)
@@ -63,6 +68,16 @@ def list_date(protocol: str, storage_options: dict[str, Any], date: datetime.dat
     paths = fs.glob(f"nwm/nwm.{date:%Y%m%d}/{product}/nwm.t00z.{product}.channel_rt.f*.conus.nc")
     paths = [f"{fs.protocol}://{p}" for p in paths]
     return paths
+
+
+
+def list_day(date: datetime.date, kind):
+    cc = azure.storage.blob.ContainerClient("https://noaanwm.blob.core.windows.net", "nwm")
+    names = list(cc.list_blob_names(name_starts_with=f"nwm.{date:%Y%m%d}/short_range"))
+    names = [x for x in names if x.endswith(f"{kind}.f001.conus.nc")]
+    urls = [f"https://noaanwm.blob.core.windows.net/nwm/{name}" for name in names]
+    return urls
+
 
 
 def generate(protocol: str, storage_options: dict[str, Any], dates: datetime.date | typing.Sequence[datetime.date], product: str) -> dict:
@@ -82,3 +97,31 @@ def generate(protocol: str, storage_options: dict[str, Any], dates: datetime.dat
     d = kerchunk.combine.MultiZarrToZarr(indices, remote_protocol=protocol, concat_dims=['time', 'reference_time'], remote_options=storage_options).translate()
     
     return d
+
+def to_dataframe(ds):
+    crs = pyproj.CRS.from_epsg(4326)
+    geometry = geopandas.points_from_xy(ds.longitude, ds.latitude, crs=crs)
+
+    df = geopandas.GeoDataFrame({
+        "reservoir_type": pd.Categorical(ds.reservoir_type.data, categories=[1, 2]),
+        "water_sfc_elev": ds.water_sfc_elev,
+        "inflow": ds.inflow,
+        "outflow": ds.outflow,
+    }, geometry=geometry)
+
+    df["time"] = np.repeat(ds.time.data, len(df))
+    df["feature_id"] = ds.feature_id
+
+    df = df[["time", "feature_id", "geometry", "reservoir_type", "water_sfc_elev", "inflow", "outflow"]]
+    return df
+
+
+def process_day(url):
+    ds = xr.open_dataset(fsspec.open(url).open(), engine="h5netcdf").load()
+    return to_dataframe(ds)
+
+
+def process(urls):
+    dfs = [process_day(url) for url in urls]
+    df = pd.concat(dfs).set_index("time")
+    return df
