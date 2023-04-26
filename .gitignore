@@ -10,3 +10,4 @@ terraform.tfstate.backup
 .jupyter
 .local
 deploy/secrets.yaml
+urls.txt

@@ -27,13 +27,11 @@ jupyterhub:
       enabled: true
 
   scheduling:
-    userPlaceholder:
-      enabled: true
     podPriority:
       enabled: true
     userPlaceholder:
       enabled: true
-      replicas: 4
+      replicas: 0
 
   singleuser:
     image:
