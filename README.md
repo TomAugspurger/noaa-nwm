@@ -5,6 +5,10 @@ Materials for the Azure / Planetary Computer workshop at the [CIROH Training and
 
 ## Notebooks
 
+1. [Introduction](noaa-nwm-exmaple.ipynb)
+2. [Problems](Problems.ipynb)
+3. [Using Kerchunk](using-kerchunk.ipynb)
+4. [Tabular](nwm-tabular.ipynb)
 
 ## Data Processing
 
