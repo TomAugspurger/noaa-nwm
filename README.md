@@ -7,7 +7,7 @@ Materials for the Azure / Planetary Computer workshop at the [CIROH Training and
 
 These notebooks give an overview of national water model data on Azure, and an introduction to cloud-native geospatial data analysis.
 
-1. [Introduction](noaa-nwm-exmaple.ipynb): An overview of the NWM data available on Azure.
+1. [Introduction](noaa-nwm-example.ipynb): An overview of the NWM data available on Azure.
 2. [Problems](Problems.ipynb): Some challenges with using NWM data on the cloud.
 3. [Using Kerchunk](using-kerchunk.ipynb): Using Kerchunk to speed up access to NWM data.
 4. [Tabular](nwm-tabular.ipynb): Accessing NWM data as a geoparquet dataset.
