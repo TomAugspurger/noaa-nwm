@@ -1,7 +1,10 @@
 # NWM on Azure
 
-Materials for the Azure / Planetary Computer workshop at the [CIROH Training and Developers Conference][conf]
+Materials for the Azure / Planetary Computer workshop at the [CIROH Training and Developers Conference][conf].
 
+## Log into the Hub
+
+Log into the JupyterHub at <https://ciroh.eastus.cloudapp.azure.com/>.
 
 ## Notebooks
 
