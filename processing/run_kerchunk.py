@@ -11,7 +11,6 @@ import fsspec
 import tlz
 from pangeo_forge_recipes.recipes.reference_hdf_zarr import (
     ChunkKey,
-    HDFReferenceRecipe,
     Stage,
     unstrip_protocol,
     file_opener,
@@ -94,10 +93,8 @@ def list_day(root, product):
     """
     fs = fsspec.filesystem("abfs", account_name="noaanwm")
     if product == "forcing":
-        # nwm/nwm.20230123/forcing_short_range/nwm.t00z.short_range.forcing.f001.conus.nc
-        pattern = (
-            f"{root}/forcing_short_range/nwm.t*z.short_range.forcing.f001.conus.nc"
-        )
+        # nwm/nwm.20230123/forcing_short_range/nwm.t00z.short_range.forcing.f001.conus.nc  # noqa: E501
+        pattern = f"{root}/forcing_short_range/nwm.t*z.short_range.forcing.f001.conus.nc"  # noqa: E501
     else:
         # nwm/nwm.20230123/short_range/nwm.t00z.short_range.channel_rt.f001.conus.nc
         pattern = f"{root}/short_range/nwm.*.short_range.{product}.f001.conus.nc"
