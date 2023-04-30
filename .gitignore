@@ -11,3 +11,5 @@ terraform.tfstate.backup
 .local
 deploy/secrets.yaml
 urls.txt
+forcing-files.txt
+land-files.txt

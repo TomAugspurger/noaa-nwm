@@ -30,3 +30,8 @@ Check those out if you're interested in some of the behind-the-scenes work for m
 The `terraform` directory has some stuff for deploying the infrastructure in the workshop.
 
 [conf]: https://ciroh.ua.edu/devconference/
+
+## TODO
+
+- forcing
+- other forecast hours
