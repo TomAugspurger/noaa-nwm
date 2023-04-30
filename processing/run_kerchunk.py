@@ -4,10 +4,7 @@ import pathlib
 import sys
 
 from dask_kubernetes.operator import KubeCluster
-from distributed import Client
 from pangeo_forge_recipes.patterns import pattern_from_file_sequence
-from pangeo_forge_recipes.patterns import pattern_from_file_sequence
-from pangeo_forge_recipes.recipes.reference_hdf_zarr import HDFReferenceRecipe
 from pangeo_forge_recipes.recipes.reference_hdf_zarr import HDFReferenceRecipe
 from pangeo_forge_recipes.storage import StorageConfig, FSSpecTarget, MetadataTarget
 import fsspec
@@ -42,6 +39,7 @@ def scan_file(chunk_key: ChunkKey, config: HDFReferenceRecipe):
         )
 
 
+# workaround for https://github.com/pangeo-forge/pangeo-forge-recipes/issues/515
 def hdf_reference_recipe_compiler(recipe: HDFReferenceRecipe) -> Pipeline:
     stages = [
         Stage(
@@ -52,6 +50,7 @@ def hdf_reference_recipe_compiler(recipe: HDFReferenceRecipe) -> Pipeline:
     return Pipeline(stages=stages, config=recipe)
 
 
+# workaround for https://github.com/pangeo-forge/pangeo-forge-recipes/issues/515
 class MyHDFReferenceRecipe(HDFReferenceRecipe):
     _compiler = hdf_reference_recipe_compiler
 
@@ -62,6 +61,7 @@ class MyTarget(FSSpecTarget):
         pass
 
 
+# Workaround https://github.com/pangeo-forge/pangeo-forge-recipes/issues/419
 class MyMetadataTarget(MetadataTarget):
     def __post_init__(self):
         pass
@@ -69,14 +69,40 @@ class MyMetadataTarget(MetadataTarget):
 
 def parse_args(args=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("product", choices=["channel_rt", "land"])
+    parser.add_argument("product", choices=["channel_rt", "land", "forcing"])
 
     return parser.parse_args(args)
 
 
+def is_bad(f):
+    """
+    Check if a NetCDF file is corrupt.
+    """
+    import xarray as xr
+
+    try:
+        xr.open_dataset(fsspec.open(f, account_name="noaanwm").open())
+    except Exception:
+        return f
+    else:
+        return False
+
+
 def list_day(root, product):
+    """
+    List the files for a product under a day prefix.
+    """
     fs = fsspec.filesystem("abfs", account_name="noaanwm")
-    return fs.glob(f"{root}/short_range/nwm.*.short_range.{product}.f001.conus.nc")
+    if product == "forcing":
+        # nwm/nwm.20230123/forcing_short_range/nwm.t00z.short_range.forcing.f001.conus.nc
+        pattern = (
+            f"{root}/forcing_short_range/nwm.t*z.short_range.forcing.f001.conus.nc"
+        )
+    else:
+        # nwm/nwm.20230123/short_range/nwm.t00z.short_range.channel_rt.f001.conus.nc
+        pattern = f"{root}/short_range/nwm.*.short_range.{product}.f001.conus.nc"
+
+    return fs.glob(pattern)
 
 
 def main(args=None):
@@ -91,7 +117,7 @@ def main(args=None):
         # there are missing days / hours, so we can't use a simple file pattern.
         print("Listing files")
         with KubeCluster(
-            image="mcr.microsoft.com/planetary-computer/python:2023.3.19.0",
+            image="pccomponentstest.azurecr.io/noaa-nwm:2023.4.26.0",
             resources={
                 "requests": {"memory": "7Gi", "cpu": "0.9"},
                 "limit": {"memory": "8Gi", "cpu": "1"},
@@ -100,6 +126,7 @@ def main(args=None):
         ) as cluster:
             cluster.scale(8)
             with cluster.get_client() as client:
+                client.upload_file("run_kerchunk.py")
                 print("Dashboard Link:", client.dashboard_link)
 
                 fs = fsspec.filesystem("abfs", account_name="noaanwm")
@@ -112,33 +139,39 @@ def main(args=None):
 
     file_list = p.read_text().split("\n")
 
-    # workaround https://github.com/pangeo-forge/staged-recipes/pull/215/#issuecomment-1520905668
-    # by filtering to newer files
-    # also drop corrupt NetCDF files
     bad = {
         "nwm/nwm.20220917/short_range/nwm.t18z.short_range.channel_rt.f001.conus.nc",
         "nwm/nwm.20220926/short_range/nwm.t16z.short_range.channel_rt.f001.conus.nc",
+        "nwm/nwm.20220913/short_range/nwm.t12z.short_range.land.f001.conus.nc",
+        "nwm/nwm.20220927/short_range/nwm.t20z.short_range.land.f001.conus.nc",
+        "nwm/nwm.20221020/forcing_short_range/nwm.t00z.short_range.forcing.f001.conus.nc",
     }
 
     file_list = [
         x
         for x in file_list
+        # https://github.com/pangeo-forge/staged-recipes/pull/215/#issuecomment-1520905668
+        # filter to newer files
         if x.split("/")[1].split(".")[1] > "20220628"
-        and x[61:65] == "f001"
+        # drop corrupt NetCDF files
         and x not in bad
     ]
     print(f"Processing {len(file_list)} files")
 
-    fs = fsspec.filesystem("abfs", account_name="noaanwm")
     urls = ["abfs://" + f for f in file_list]
 
     # Create filepattern from urls
     pattern = pattern_from_file_sequence(urls, "time")
 
-    if product == "channel_rt":
-        identical_dims = ["feature_id"]
-    else:
-        identical_dims = ["x", "y"]
+    match product:
+        case "channel_rt":
+            identical_dims = ["feature_id"]
+        case "land":
+            identical_dims = ["x", "y"]
+        case "forcing":
+            identical_dims = ["x", "y", "crs"]
+        case _:
+            raise ValueError(f"Unknown product {product}")
 
     # Create HDFReference recipe from pattern
     recipe = MyHDFReferenceRecipe(
@@ -160,15 +193,16 @@ def main(args=None):
 
     # Run it
     with KubeCluster(
-        image="mcr.microsoft.com/planetary-computer/python:2023.3.19.0",
+        image="pccomponentstest.azurecr.io/noaa-nwm:2023.4.26.0",
         resources={
             "requests": {"memory": "7Gi", "cpu": "0.9"},
             "limit": {"memory": "8Gi", "cpu": "1"},
         },
         worker_command="dask-worker --nthreads 1 --nworkers 1 --memory-limit 8GB",
     ) as cluster:
-        cluster.scale(8)
+        cluster.scale(64)
         with cluster.get_client() as client:
+            client.upload_file("run_kerchunk.py")
             print("Dashboard Link:", client.dashboard_link)
             recipe.to_dask().compute()
 
