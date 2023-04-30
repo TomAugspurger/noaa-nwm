@@ -23,8 +23,6 @@ import kerchunk.hdf
 import kerchunk.combine
 
 from dask_kubernetes.operator import KubeCluster
-import adlfs
-import dask_geopandas
 import azure.storage.blob
 import dask.dataframe
 import datetime
@@ -189,7 +187,8 @@ def main(args=None):
         with open("urls.txt", "w") as f:
             f.write("\n".join(tlz.concat(list(urls))))
 
-    month_key = lambda x: x.split("/")[4].split(".")[1][:6]
+    def month_key(x):
+        return x.split("/")[4].split(".")[1][:6]
     urls = sorted(open("urls.txt").read().split())
     by_month = list(tlz.partitionby(month_key, urls))
 

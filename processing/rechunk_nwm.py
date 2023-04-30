@@ -2,7 +2,6 @@ import os
 import sys
 import argparse
 import rechunker
-import zarr
 import xarray as xr
 import fsspec
 
@@ -43,7 +42,7 @@ def main(args=None):
     temp_store = fsspec.get_mapper(f"abfs://ciroh/rechunk/{product}/temp", account_name="noaanwm", credential=credential)
     temp_store.clear()
  
-    plan = rechunker.rechunk(ds, target_chunks=target_chunks, max_mem="6G", target_store=target_store, temp_store=temp_store)
+    rechunker.rechunk(ds, target_chunks=target_chunks, max_mem="6G", target_store=target_store, temp_store=temp_store)
 
 
 
