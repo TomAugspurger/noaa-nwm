@@ -1,26 +1,9 @@
-"""
-Stuff for NOAA NWM
-
-https://planetarycomputer.microsoft.com/dataset/storage/noaa-nwm
-
-The 'reservoir' data is tabular-ish?
-
-    https://noaanwm.blob.core.windows.net/nwm/nwm.20230401/short_range/nwm.t00z.short_range.reservoir.f001.conus.nc
-
-```
-In [107]: x = xr.open_dataset(fsspec.open("https://noaanwm.blob.core.windows.net/nwm/nwm.20230401/short_range/nwm.t00z.short_range.reservoir.f001.conus.nc").open())
-In [108]: df = geopandas.GeoDataFrame(x.drop_vars(["crs", "latitude", "longitude"]).to_dataframe(), geometry=geopandas.points_from_xy(x.longitude, x.latitude))
-```
-"""
 import os
 import sys
 import pathlib
 import argparse
 from typing import Any
 import typing
-import fsspec
-import kerchunk.hdf
-import kerchunk.combine
 
 from dask_kubernetes.operator import KubeCluster
 import azure.storage.blob
@@ -43,12 +26,17 @@ CYCLE_RUNTIMES = list(range(23))
 
 
 def make_prefix(date, product, cycle_runtime):
-    return f"https://noaanwm.blob.core.windows.net/nwm/nwm.{date:%Y%m%d}/{product}/nwm.t{cycle_runtime:0>2d}z.{product}"
+    return (
+        f"https://noaanwm.blob.core.windows.net/nwm/"
+        f"nwm.{date:%Y%m%d}/{product}/nwm.t{cycle_runtime:0>2d}z.{product}"
+    )
 
 
 def make_url(date, product, cycle_runtime, kind, forecast_time):
     """
-    >>> channel_rt = xr.open_dataset(fsspec.open(make_url(date, "short_range", 0, "channel_rt", 1)).open())
+    >>> channel_rt = xr.open_dataset(
+    ...     fsspec.open(make_url(date, "short_range", 0, "channel_rt", 1)).open()
+    ... )
     """
     prefix = make_prefix(date, product, cycle_runtime)
     return ".".join([prefix, kind, f"f{forecast_time:0>3d}", "conus.nc"])
@@ -189,6 +177,7 @@ def main(args=None):
 
     def month_key(x):
         return x.split("/")[4].split(".")[1][:6]
+
     urls = sorted(open("urls.txt").read().split())
     by_month = list(tlz.partitionby(month_key, urls))
 
@@ -217,7 +206,9 @@ def main(args=None):
     last = months[-1] + pd.tseries.offsets.MonthEnd() + pd.tseries.offsets.Hour(n=24)
     divisions = tuple([month + pd.tseries.offsets.Hour() for month in months]) + (last,)
 
-    df = dask.dataframe.from_map(process_month, by_month, meta=schema, divisions=divisions)
+    df = dask.dataframe.from_map(
+        process_month, by_month, meta=schema, divisions=divisions
+    )
 
     with KubeCluster(
         image="mcr.microsoft.com/planetary-computer/python:2023.3.19.0",

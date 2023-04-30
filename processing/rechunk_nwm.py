@@ -38,13 +38,25 @@ def main(args=None):
         case _:
             raise ValueError(f"Unknown product {product}")
 
-    target_store = fsspec.get_mapper(f"abfs://ciroh/rechunk/{product}/target", account_name="noaanwm", credential=credential)
-    temp_store = fsspec.get_mapper(f"abfs://ciroh/rechunk/{product}/temp", account_name="noaanwm", credential=credential)
+    target_store = fsspec.get_mapper(
+        f"abfs://ciroh/rechunk/{product}/target",
+        account_name="noaanwm",
+        credential=credential,
+    )
+    temp_store = fsspec.get_mapper(
+        f"abfs://ciroh/rechunk/{product}/temp",
+        account_name="noaanwm",
+        credential=credential,
+    )
     temp_store.clear()
- 
-    rechunker.rechunk(ds, target_chunks=target_chunks, max_mem="6G", target_store=target_store, temp_store=temp_store)
 
-
+    rechunker.rechunk(
+        ds,
+        target_chunks=target_chunks,
+        max_mem="6G",
+        target_store=target_store,
+        temp_store=temp_store,
+    )
 
 
 if __name__ == "__main__":
