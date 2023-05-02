@@ -70,6 +70,7 @@ jupyterhub:
       GDAL_DISABLE_READDIR_ON_OPEN: "EMPTY_DIR"
       GDAL_HTTP_MERGE_CONSECUTIVE_RANGES: "YES"
       GDAL_HTTP_MAX_RETRY: "5"
+      USE_PYGEOS: "0"
 
 dask-gateway:
   gateway:

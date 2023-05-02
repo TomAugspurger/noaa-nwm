@@ -1,4 +1,4 @@
-.PHONY: dask-operator
+.PHONY: dask-operator book
 
 setup:
 	helm repo add dask https://helm.dask.org
@@ -14,3 +14,6 @@ dask-hub:
 		--values=deploy/gateway-config.yaml \
 		--values=deploy/secrets.yaml \
 		--wait
+
+book:
+	jupyter book build content

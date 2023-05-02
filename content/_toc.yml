@@ -1,0 +1,10 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: noaa-nwm-example
+- file: problems
+- file: using-kerchunk
+- file: nwm-tabular
