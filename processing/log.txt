@@ -1,0 +1,538 @@
+DEBUG:adlfs.spec:_strip_protocol for nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc
+DEBUG:adlfs.spec:_strip_protocol(abfs://nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc) = {'protocol': 'abfs', 'path': 'nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc', 'host': 'nwm'}
+DEBUG:adlfs.spec:_open:  nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc
+DEBUG:adlfs.spec:_strip_protocol for nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc
+DEBUG:adlfs.spec:_strip_protocol(abfs://nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc) = {'protocol': 'abfs', 'path': 'nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc', 'host': 'nwm'}
+DEBUG:adlfs.spec:_strip_protocol for nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc
+DEBUG:adlfs.spec:_strip_protocol(abfs://nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc) = {'protocol': 'abfs', 'path': 'nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc', 'host': 'nwm'}
+DEBUG:adlfs.spec:_strip_protocol for nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc
+DEBUG:adlfs.spec:_strip_protocol(abfs://nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc) = {'protocol': 'abfs', 'path': 'nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc', 'host': 'nwm'}
+DEBUG:adlfs.spec:abfs.ls() is searching for nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc
+DEBUG:adlfs.spec:_strip_protocol for nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc
+DEBUG:adlfs.spec:_strip_protocol(abfs://nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc) = {'protocol': 'abfs', 'path': 'nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc', 'host': 'nwm'}
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm?restype=REDACTED&comp=REDACTED&prefix=REDACTED&delimiter=REDACTED&include=REDACTED&st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '209ceba6-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/xml'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd91306a8-c01e-0026-7ca3-81c76c000000'
+    'x-ms-client-request-id': '209ceba6-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:45 GMT'
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'HEAD'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '20c8395a-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Content-Length': '51172254'
+    'Content-Type': 'application/octet-stream'
+    'Content-MD5': 'REDACTED'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd9130712-c01e-0026-5ba3-81c76c000000'
+    'x-ms-client-request-id': '20c8395a-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-access-tier': 'REDACTED'
+    'x-ms-access-tier-inferred': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:45 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 0 - 8
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '20c968ca-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '5242888'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 0-5242887/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd9130718-c01e-0026-60a3-81c76c000000'
+    'x-ms-client-request-id': '20c968ca-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:45 GMT'
+DEBUG:h5py._conv:Creating converter from 7 to 5
+DEBUG:h5py._conv:Creating converter from 5 to 7
+DEBUG:h5py._conv:Creating converter from 7 to 5
+DEBUG:h5py._conv:Creating converter from 5 to 7
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 0 - 8
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 0 - 8
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 0 - 16
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 16 - 96
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 96 - 608
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 608 - 710
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 10036 - 10074
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 9890 - 10036
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 10194 - 10706
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 41600 - 42112
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 2038 - 2550
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 2550 - 2724
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 18405 - 18443
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 18259 - 18405
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 24210 - 24722
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 30066 - 31090
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 2724 - 3236
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 3236 - 3299
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 3299 - 3811
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 3811 - 3974
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 26486 - 26524
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 26340 - 26486
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 26644 - 27156
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 28018 - 29042
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 3974 - 4486
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 4486 - 4649
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 18709 - 18747
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 18563 - 18709
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 25316 - 25828
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 29042 - 30066
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 4649 - 5161
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 5003 - 5515
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 5357 - 5869
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 5869 - 6185
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 6331 - 6369
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 6185 - 6331
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 6489 - 7001
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 7513 - 8025
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 8025 - 8294
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 8440 - 8478
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 8294 - 8440
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 8598 - 9110
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 9622 - 10134
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 11934 - 11972
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 11788 - 11934
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 12092 - 12604
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 11218 - 11730
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 11730 - 11784
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 13541 - 13579
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 13395 - 13541
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 13699 - 14211
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 13116 - 13628
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 15434 - 15472
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 15288 - 15434
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 15592 - 16104
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 14723 - 15235
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 15223 - 15261
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 16969 - 17115
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 17235 - 17747
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 16616 - 17128
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 18932 - 18970
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 18786 - 18932
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 19090 - 19602
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 47286 - 47340
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 46262 - 47286
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 45238 - 46262
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 44214 - 45238
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 44160 - 44214
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 43136 - 44160
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 20114 - 24210
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 42112 - 43136
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 41546 - 41600
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 40522 - 41546
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 39498 - 40522
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 39444 - 39498
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 38420 - 39444
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 37396 - 38420
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 37342 - 37396
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 36318 - 37342
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 35294 - 36318
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 35240 - 35294
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 34216 - 35240
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 33192 - 34216
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 33138 - 33192
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 32114 - 33138
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 31090 - 32114
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 856 - 894
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 710 - 856
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 1014 - 1526
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 47340 - 48364
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 48364 - 50460
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 56749 - 56799
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 56749 - 56799
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 50460 - 52556
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 56799 - 56811
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 56799 - 56811
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 56749 - 56799
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 56799 - 56811
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 52556 - 54652
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 37916448 - 37920954
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '20f8b45e-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '5247386'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 37916448-43163833/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd91307aa-c01e-0026-57a3-81c76c000000'
+    'x-ms-client-request-id': '20f8b45e-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:46 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 54652 - 56748
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '210b24a4-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '5244976'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 54652-5299627/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd91307ee-c01e-0026-16a3-81c76c000000'
+    'x-ms-client-request-id': '210b24a4-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:46 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 37920954 - 37924832
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '211c4144-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '5246758'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 37920954-43167711/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd9130828-c01e-0026-4ca3-81c76c000000'
+    'x-ms-client-request-id': '211c4144-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:46 GMT'
+INFO:root:================================= Reading Data =================================
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 22435044 - 22438180
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '21711458-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '5246016'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 22435044-27681059/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd913096f-c01e-0026-73a3-81c76c000000'
+    'x-ms-client-request-id': '21711458-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:46 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 22676203 - 22772156
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 22772156 - 23312008
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 23312008 - 23696768
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 23696768 - 23719366
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 22438180 - 22676203
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 23719366 - 24035401
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 24035401 - 24755767
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 24755767 - 25565767
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 25565767 - 26307973
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 46846627 - 47049220
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '2191f236-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '4325627'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 46846627-51172253/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd91309f6-c01e-0026-71a3-81c76c000000'
+    'x-ms-client-request-id': '2191f236-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:47 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 26307973 - 26966737
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '219e0fee-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '5901644'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 26307973-32209616/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd9130a2a-c01e-0026-20a3-81c76c000000'
+    'x-ms-client-request-id': '219e0fee-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:47 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 27412056 - 28191708
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 28191708 - 28970416
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 28970416 - 29777199
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 26966737 - 27412056
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 29777199 - 30402573
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 30402573 - 31182777
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 31182777 - 32015122
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 32015122 - 32709212
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '21b4a6dc-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '5742475'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 32209617-37952091/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd9130a89-c01e-0026-76a3-81c76c000000'
+    'x-ms-client-request-id': '21b4a6dc-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:47 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 47049220 - 47717346
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '21c44d94-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '4123034'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 47049220-51172253/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd9130abf-c01e-0026-29a3-81c76c000000'
+    'x-ms-client-request-id': '21c44d94-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:47 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 32709212 - 33292745
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '21cbeb08-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '5826413'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 32709212-38535624/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd9130ad7-c01e-0026-40a3-81c76c000000'
+    'x-ms-client-request-id': '21cbeb08-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:47 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 33292745 - 33940735
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 47717346 - 48387857
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://noaanwm.blob.core.windows.net/nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc?st=REDACTED&se=REDACTED&sp=REDACTED&sv=REDACTED&sr=REDACTED&skoid=REDACTED&sktid=REDACTED&skt=REDACTED&ske=REDACTED&sks=REDACTED&skv=REDACTED&sig=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '21d7831e-ed97-11ed-9c6e-c280cd03f5bb'
+    'User-Agent': 'azsdk-python-storage-blob/12.15.0 Python/3.10.9 (Linux-5.15.0-1035-azure-x86_64-with-glibc2.35)'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 206
+Response headers:
+    'Content-Length': '3454908'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'bytes 47717346-51172253/51172254'
+    'Last-Modified': 'Mon, 23 Jan 2023 01:57:18 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'Etag': '"0x8DAFCE528633D49"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'd9130b04-c01e-0026-6aa3-81c76c000000'
+    'x-ms-client-request-id': '21d7831e-ed97-11ed-9c6e-c280cd03f5bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Date': 'Mon, 08 May 2023 11:54:47 GMT'
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 48387857 - 48895991
+DEBUG:fsspec:<File-like object AzureBlobFileSystem, nwm/nwm.20230123/short_range/nwm.t00z.short_range.land.f001.conus.nc> read: 48895991 - 49445553

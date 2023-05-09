@@ -1,0 +1,102 @@
+apiVersion: kubernetes.dask.org/v1
+kind: DaskCluster
+metadata:
+  name: nwm
+spec:
+  scheduler:
+    service:
+      ports:
+      - name: tcp-comm
+        port: 8786
+        protocol: TCP
+        targetPort: tcp-comm
+      - name: http-dashboard
+        port: 8787
+        protocol: TCP
+        targetPort: http-dashboard
+      selector:
+        dask.org/cluster-name: nwm
+        dask.org/component: scheduler
+      type: ClusterIP
+    spec:
+      containers:
+      - args:
+        - dask-scheduler
+        - --host
+        - 0.0.0.0
+        - --idle-timeout
+        - '600'
+        env: null
+        image: pccomponentstest.azurecr.io/noaa-nwm:2023.4.26.0
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http-dashboard
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        name: scheduler
+        ports:
+        - containerPort: 8786
+          name: tcp-comm
+          protocol: TCP
+        - containerPort: 8787
+          name: http-dashboard
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http-dashboard
+          initialDelaySeconds: 0
+          periodSeconds: 1
+          timeoutSeconds: 300
+        resources:
+          limits:
+            cpu: '1'
+            memory: 8Gi
+          requests:
+            cpu: '0.9'
+            memory: 7Gi
+  worker:
+    replicas: 62
+    spec:
+      containers:
+      - args:
+        - dask-worker
+        - --nthreads
+        - '8'
+        - --nworkers
+        - '1'
+        - --memory-limit
+        - 8GB
+        - --name
+        - $(DASK_WORKER_NAME)
+        - --dashboard
+        - --dashboard-address
+        - '8788'
+        env: null
+        image: pccomponentstest.azurecr.io/noaa-nwm:2023.4.26.0
+        name: worker
+        ports:
+        - containerPort: 8788
+          name: http-dashboard
+          protocol: TCP
+        resources:
+          requests:
+            cpu: "7"
+            memory: 50Gi
+          limits:
+            cpu: "8"
+            memory: 60Gi
+      tolerations:
+      - effect: NoSchedule
+        key: k8s.dask.org/dedicated
+        operator: Equal
+        value: worker
+      - effect: NoSchedule
+        key: k8s.dask.org_dedicated
+        operator: Equal
+        value: worker
+      - effect: NoSchedule
+        key: kubernetes.azure.com/scalesetpriority
+        operator: Equal
+        value: spot

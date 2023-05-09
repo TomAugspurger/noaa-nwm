@@ -3,7 +3,7 @@ import pathlib
 
 import fsspec
 from pangeo_forge_recipes.patterns import pattern_from_file_sequence
-from dask_kubernetes.operator import KubeCluster, make_cluster_spec
+from dask_kubernetes.operator import KubeCluster
 from pangeo_forge_recipes.recipes.xarray_zarr import XarrayZarrRecipe
 from pangeo_forge_recipes.storage import StorageConfig, FSSpecTarget, MetadataTarget
 
@@ -43,6 +43,8 @@ def main():
 
     # fs = fsspec.filesystem("abfs", account_name="noaanwm")
     urls = ["abfs://" + f for f in file_list]
+    # Working through some scaling / stability issues
+    urls = urls[-2000:]
 
     pattern = pattern_from_file_sequence(
         urls, "time", nitems_per_file=1, fsspec_open_kwargs=dict(account_name="noaanwm")
@@ -57,49 +59,21 @@ def main():
     target_storage_options = dict(account_name="noaanwm", credential=credential)
     target_fs = fsspec.filesystem("abfs", **target_storage_options)
     storage = StorageConfig(
-        target=MyTarget(target_fs, root_path=f"ciroh/zarr/short-range-{product}.zarr/"),
+        target=MyTarget(
+            target_fs, root_path=f"ciroh/zarr/ts/short-range-{product}.zarr/"
+        ),
         metadata=MyMetadataTarget(
             target_fs, root_path=f"ciroh/metadata/short-range-{product}-zarr-metadata/"
         ),
     )
     recipe.storage_config = storage
-    spec = make_cluster_spec(
-        name="nwm",
-        n_workers=64,
-        image="pccomponentstest.azurecr.io/noaa-nwm:2023.4.26.0",
-        resources={
-            "requests": {"memory": "7Gi", "cpu": "0.9"},
-            "limit": {"memory": "8Gi", "cpu": "1"},
-        },
-        worker_command="dask-worker --nthreads 1 --nworkers 1 --memory-limit 8GB",
-    )
-    spec["spec"]["worker"]["spec"]["tolerations"] = [
-        {
-            "key": "k8s.dask.org/dedicated",
-            "operator": "Equal",
-            "value": "worker",
-            "effect": "NoSchedule",
-        },
-        {
-            "key": "k8s.dask.org_dedicated",
-            "operator": "Equal",
-            "value": "worker",
-            "effect": "NoSchedule",
-        },
-        {
-            "key": "kubernetes.azure.com/scalesetpriority",
-            "operator": "Equal",
-            "value": "spot",
-            "effect": "NoSchedule",
-        },
-    ]
 
-    with KubeCluster(custom_cluster_spec=spec) as cluster:
-        # cluster.scale(64)
+    with KubeCluster(custom_cluster_spec="cluster.yaml") as cluster:
         with cluster.get_client() as client:
             client.upload_file("run_zarr.py")
             print("Dashboard Link:", client.dashboard_link)
-            recipe.to_dask().compute()
+            recipe.to_dask().compute(retries=10)
+            print("Done")
 
 
 if __name__ == "__main__":
