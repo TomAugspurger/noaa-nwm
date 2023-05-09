@@ -356,6 +356,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-workflow">Download Workflow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-native-model">Cloud-native model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-logs">Inspecting the logs</a></li>
@@ -378,6 +379,14 @@ document.write(`
 <li><p>A “download” workflow, where you download the files ahead of time to your local disk</p></li>
 <li><p>A “cloud-native” workflow, where you read the data directly from Blob Storage.</p></li>
 </ol>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>First, some background on different “styles” of working that the Pangeo community have identified.</p>
+<p><img alt="" src="_images/download-model.png" /></p>
+<p>Under the “download” style of working, there are two distinct phases. An initial download phase, were data are downloaded from the HTTP / FTP / whatever server to your local workspace (laptop, workstation, HPC, etc.). Once the data is downloaded, you start your iterative clean / transform / analyze / visualize cycle. This model works alright for smaller, static datasets. It breaks down for datasets that are updating frequently, or are so large that downloading the archive isn’t an option.</p>
+<p><img alt="" src="_images/cloud-native-model.png" /></p>
+<p>Under the “cloud-native” model, there isn’t an initial download phase; the data stay where they are in Azure Blob Storage. Instead, you read the data directly into memory on your compute. Crucially, the compute is deployed in the same Azure region as the data, which gives you a nice, high-bandwidth connection between the storage and compute services.</p>
+<p>Unsurprisingly, we’re big fans of the cloud-native model. While there are some nuances, it’s a lower barrier to entry for newcomers. And it scales extremely well to large datasets (depending on the format and access pattern, as we’ll dig into now).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">adlfs</span>
@@ -394,6 +403,7 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
 <section id="download-workflow">
 <h2>Download Workflow<a class="headerlink" href="#download-workflow" title="Permalink to this heading">#</a></h2>
 <p>First, we’ll use the classic “download model” workflow style, where we download the data to disk ahead of time.</p>
@@ -1015,6 +1025,7 @@ Wall time: 1.26 s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-workflow">Download Workflow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-native-model">Cloud-native model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-logs">Inspecting the logs</a></li>

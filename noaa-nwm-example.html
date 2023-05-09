@@ -360,7 +360,7 @@ document.write(`
                   
   <section id="national-water-model-example">
 <h1>National Water Model Example<a class="headerlink" href="#national-water-model-example" title="Permalink to this heading">#</a></h1>
-<p>This notebook gives a brief introduction to the National Water Model data available from Azure Blob Storage. This notebook uses <a class="reference external" href="https://xarray.pydata.org/">xarray</a> and <a class="reference external" href="https://fsspec.github.io/adlfs">adlfs</a> to load the NetCDF files and visualize the data. We’ll work with the raw NetCDF data pushed to azure by <a class="reference external" href="https://www.noaa.gov/information-technology/open-data-dissemination">NODD</a>.</p>
+<p>This notebook gives a brief introduction to the National Water Model data available from Azure Blob Storage. It uses <a class="reference external" href="https://xarray.pydata.org/">xarray</a> and <a class="reference external" href="https://fsspec.github.io/adlfs">adlfs</a> to load the NetCDF files and visualize the data. We’ll work with the raw NetCDF data pushed to azure by <a class="reference external" href="https://www.noaa.gov/information-technology/open-data-dissemination">NODD</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">adlfs</span>
@@ -793,6 +793,8 @@ Attributes:
                1918499.625,  1919499.625],
              dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=3840))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-474b5f02-6cbe-4225-850e-de5f94cd9a7e' class='xr-section-summary-in' type='checkbox'  ><label for='section-474b5f02-6cbe-4225-850e-de5f94cd9a7e' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>TITLE :</span></dt><dd>OUTPUT FROM NWM v2.2</dd><dt><span>model_initialization_time :</span></dt><dd>2023-01-23_00:00:00</dd><dt><span>model_output_valid_time :</span></dt><dd>2023-01-23_01:00:00</dd><dt><span>model_total_valid_times :</span></dt><dd>18</dd><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>code_version :</span></dt><dd>v5.2.0-beta2</dd><dt><span>NWM_version_number :</span></dt><dd>v2.2</dd><dt><span>model_output_type :</span></dt><dd>land</dd><dt><span>model_configuration :</span></dt><dd>short_range</dd><dt><span>proj4 :</span></dt><dd>+proj=lcc +units=m +a=6370000.0 +b=6370000.0 +lat_1=30.0 +lat_2=60.0 +lat_0=40.0 +lon_0=-97.0 +x_0=0 +y_0=0 +k_0=1.0 +nadgrids=@null +wktext  +no_defs</dd><dt><span>GDAL_DataType :</span></dt><dd>Generic</dd></dl></div></li></ul></div></div></div></div>
 </div>
+<p>We could have chosen a number of other products that <code class="docutils literal notranslate"><span class="pre">short_range.land</span></code> for the CONUS. <a class="reference external" href="https://planetarycomputer.microsoft.com/dataset/storage/noaa-nw">https://planetarycomputer.microsoft.com/dataset/storage/noaa-nw</a> has a full list of products available in Azure Blob Storage.</p>
+<p>Let’s load up the <code class="docutils literal notranslate"><span class="pre">SOILSAT_TOP</span></code> data variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soil_saturation</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;SOILSAT_TOP&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
@@ -800,7 +802,7 @@ Attributes:
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">xarray.Dataset</span></code> shows the variables that are available. We’ll load the <code class="docutils literal notranslate"><span class="pre">SOILSAT_TOP</span></code> variable, which gives the fraction of soil saturation for the top two layers.</p>
+<p>And make a pretty picture</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
