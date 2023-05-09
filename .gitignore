@@ -14,3 +14,4 @@ urls.txt
 forcing-files.txt
 land-files.txt
 content/_build
+.env
