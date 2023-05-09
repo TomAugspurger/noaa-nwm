@@ -7,4 +7,5 @@ chapters:
 - file: noaa-nwm-example
 - file: problems
 - file: using-kerchunk
+- file: timeseries
 - file: nwm-tabular
