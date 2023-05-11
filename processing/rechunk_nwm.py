@@ -35,14 +35,14 @@ def main(args=None):
     storage_options = {"account_name": "noaanwm", "credential": credential}
 
     ds = xr.open_dataset(
-        "az://ciroh/zarr/ts/short-range-forcing.zarr",
+        "az://ciroh/zarr/ts/short-range-forcing-test.zarr",
         engine="zarr",
         storage_options=storage_options,
         chunks={},
     )
     target_chunks = {"time": 168, "y": 240, "x": 288}
     store = fsspec.get_mapper(
-        "az://ciroh/zarr/ts/short-range-forcing-rechunked.zarr", **storage_options
+        "az://ciroh/zarr/ts/short-range-forcing-rechunked-test.zarr", **storage_options
     )
 
     with dask.config.set(

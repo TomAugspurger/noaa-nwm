@@ -1,7 +1,12 @@
 import os
+import azure.storage.blob
+import datetime
+import pandas as pd
+import zarr
 import pathlib
 
 import fsspec
+import xarray as xr
 from pangeo_forge_recipes.patterns import pattern_from_file_sequence
 from dask_kubernetes.operator import KubeCluster
 from pangeo_forge_recipes.recipes.xarray_zarr import XarrayZarrRecipe
@@ -28,6 +33,13 @@ class MyMetadataTarget(MetadataTarget):
         pass
 
 
+def process_input(ds: xr.Dataset, filename: str) -> xr.Dataset:
+    # https://github.com/pangeo-forge/pangeo-forge-recipes/issues/318
+    # Ensure that the timestamps are correct in the output
+    ds["time"].encoding["units"] = "minutes since 1970-01-01 00:00:00 UTC"
+    return ds
+
+
 def main():
     file_list = pathlib.Path("forcing-files.txt").read_text().splitlines()
     file_list = [
@@ -43,16 +55,11 @@ def main():
 
     # fs = fsspec.filesystem("abfs", account_name="noaanwm")
     urls = ["abfs://" + f for f in file_list]
-    # Working through some scaling / stability issues
-    urls = urls[-2000:]
 
     pattern = pattern_from_file_sequence(
         urls, "time", nitems_per_file=1, fsspec_open_kwargs=dict(account_name="noaanwm")
     )
-    recipe = XarrayZarrRecipe(
-        pattern,
-        cache_inputs=False,
-    )
+    recipe = XarrayZarrRecipe(pattern, cache_inputs=False, process_input=process_input)
     # configure storage
     credential = os.environ["AZURE_SAS_TOKEN"]
     product = "forcing"
@@ -60,7 +67,7 @@ def main():
     target_fs = fsspec.filesystem("abfs", **target_storage_options)
     storage = StorageConfig(
         target=MyTarget(
-            target_fs, root_path=f"ciroh/zarr/ts/short-range-{product}.zarr/"
+            target_fs, root_path=f"ciroh/zarr/ts/short-range-{product}-test.zarr/"
         ),
         metadata=MyMetadataTarget(
             target_fs, root_path=f"ciroh/metadata/short-range-{product}-zarr-metadata/"
@@ -74,6 +81,42 @@ def main():
             print("Dashboard Link:", client.dashboard_link)
             recipe.to_dask().compute(retries=10)
             print("Done")
+
+    fix_time(urls, credential)
+
+
+def fix_time(urls, credential):
+    # not sure what's up here.
+    dates = []
+    for url in urls:
+        ymd = url[15:23]
+        hh = url[49:51]
+        dates.append(datetime.datetime.strptime(f"{ymd}{hh}", "%Y%m%d%H"))
+
+    dates = pd.to_datetime(dates)
+    time = xr.DataArray(
+        dates,
+        dims=["time"],
+        name="time",
+        attrs={"long_name": "valid output time", "standard_name": "time"},
+    )
+    store = {}
+    time.to_zarr(store)
+    cc = azure.storage.blob.ContainerClient(
+        "https://noaanwm.blob.core.windows.net",
+        container_name="ciroh",
+        credential=credential,
+    )
+    prefix = "zarr/ts/short-range-forcing-test.zarr"
+
+    for k, v in store.items():
+        if k.startswith("time/"):
+            print("fix", k)
+            cc.get_blob_client(f"{prefix}/{k}").upload_blob(v, overwrite=True)
+
+    print("Reconsolidating metadata")
+    store = zarr.ABSStore(client=cc, prefix=prefix)
+    zarr.consolidate_metadata(store)
 
 
 if __name__ == "__main__":

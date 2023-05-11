@@ -36,7 +36,7 @@ jupyterhub:
   singleuser:
     image:
       name: "mcr.microsoft.com/planetary-computer/python"
-      tag: "latest"
+      tag: "2023.5.3.0"
     startTimeout: 1200  # 20 * 60s = 10 minutes
     cpu:
       guarantee: 1.65  # below 3.78
