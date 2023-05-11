@@ -115,8 +115,8 @@ def fix_time(urls, credential):
             cc.get_blob_client(f"{prefix}/{k}").upload_blob(v, overwrite=True)
 
     print("Reconsolidating metadata")
-    store = zarr.ABSStore(client=cc, prefix=prefix)
-    zarr.consolidate_metadata(store)
+    rstore = zarr.ABSStore(client=cc, prefix=prefix)
+    zarr.consolidate_metadata(rstore)
 
 
 if __name__ == "__main__":
