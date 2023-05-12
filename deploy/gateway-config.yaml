@@ -127,7 +127,7 @@ dask-gateway:
                   return {
                       "worker_cores": 0.88 * min(options.worker_cores / 2, 1),
                       "worker_cores_limit": options.worker_cores,
-                      "worker_memory": "%fG" % (0.9 * options.worker_memory),
+                      "worker_memory": "%fG" % (0.88 * options.worker_memory),
                       "worker_memory_limit": "%fG" % options.worker_memory,
                       "image": options.image,
                       "environment": options.environment,
