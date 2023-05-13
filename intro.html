@@ -355,6 +355,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-compute">Accessing the Compute</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 </ul>
@@ -374,21 +375,41 @@ document.write(`
 Developers Conference</a>. We’ll cover the
 basics of accessing National Water Model data from Azure using tools from the
 <a class="reference external" href="https://pangeo.io">Pangeo</a> ecosystem and the <a class="reference external" href="https://planetarycomputer.microsoft.com/">Planetary Computer</a>.</p>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this heading">#</a></h2>
+<p>We hope you’ll get a few things out of this workshop:</p>
+<ol class="arabic simple">
+<li><p>Learn about the massive amount of data available on Azure, including the
+National Water Model, that’s available to you. (See the <a class="reference external" href="https://planetarycomputer.microsoft.com/catalog">Planetary Computer
+catalog</a> for an overview).</p></li>
+<li><p>Learn some of the basics of cloud-native geospatial, and how to best use
+these datasets from Azure.</p></li>
+<li><p>Learn how to use tools from the <a class="reference external" href="https://pangeo.io">Pangeo</a> ecosystem to work with large
+geospatial datasets on the cloud.</p></li>
+<li><p>Learn how the Planetary Computer enables efficient access to these datasets.</p></li>
+</ol>
+</section>
 <section id="accessing-the-compute">
 <h2>Accessing the Compute<a class="headerlink" href="#accessing-the-compute" title="Permalink to this heading">#</a></h2>
-<p>We’ll be working with some large datasets. To ensure things work well, we’ll be using a JupyterHub
-deployed next to the data in Azure’s East US region.</p>
+<p>This workshop is intended to be interactive! While you can just follow along, we
+really do encourage you to work through the materials along with us. We’ve
+deployed a JupyterHub on <a class="reference external" href="https://learn.microsoft.com/en-us/azure/aks/">Azure Kubernetes Service</a>, so you have fast
+access to the data. Click the button below to launch your notebook server. Pick
+a unique username and use the password we share at the conference to log in.</p>
 <div style="text-align:center">
   <a class="btn btn-primary" href="https://ciroh.eastus.cloudapp.azure.com/" role="button">Launch Notebook Server</a>
 </div>
-<p>Note that the JupyterHub we’re using for this workshop will go away at the end of the day. You can
-deploy your own Hub, or sign up for the Microsoft <a class="reference external" href="https://planetarycomputer.microsoft.com/">Planetary Computer</a> to get a similar experience.</p>
+<p>Note that the JupyterHub we’re using for this workshop will go away at the end
+of the day. You can deploy your <a class="reference external" href="https://planetarycomputer.microsoft.com/docs/concepts/hub-deployment/">own Hub</a>, or use one of the other compute
+services on Microsoft to access the data. If you’re not sure whether you have
+access to Azure, reach out and we’ll help you.</p>
 </section>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
 <p>Attendees will get the most out of this workshop if they have <em>some</em> knowledge
-of <a class="reference external" href="https://xarray.pydata.org/">xarray</a>, but we’ll do our best to introduce the concepts. You don’t need any
-knowledge of cloud computing or parallel computing with Dask.</p>
+of Python, <a class="reference external" href="https://pandas.pydata.org/%5D">pandas</a> and <a class="reference external" href="https://xarray.pydata.org/">xarray</a>, but we’ll do our best to introduce the
+concepts. You don’t need any knowledge of cloud computing or parallel computing
+with Dask.</p>
 <p>If you’re new to Python, xarray, or Jupyter, the <a class="reference external" href="https://foundations.projectpythia.org/landing-page.html">Pythia Foundations</a> book has a good introduction.</p>
 </section>
 <div class="toctree-wrapper compound">
@@ -453,6 +474,7 @@ knowledge of cloud computing or parallel computing with Dask.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-compute">Accessing the Compute</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 </ul>
