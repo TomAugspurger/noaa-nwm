@@ -17,15 +17,31 @@ deployed next to the data in Azure's East US region.
 Note that the JupyterHub we're using for this workshop will go away at the end of the day. You can
 deploy your own Hub, or sign up for the Microsoft [Planetary Computer][pc] to get a similar experience.
 
+## Goals
+
+We hope you'll get a few things out of this workshop:
+
+1. Learn about the massive amount of data available on Azure, including the
+   National Water Model, that's available to you. (See the [Planetary Computer
+   catalog][catalog] for an overview).
+2. Learn some of the basics of cloud-native geospatial, and how to best use
+   these datasets from Azure.
+3. Learn how to use tools from the [Pangeo] ecosystem to work with large
+   geospatial datasets on the cloud.
+4. Learn how the Planetary Computer enables efficient access to these datasets.
+
 ## Background
 
 Attendees will get the most out of this workshop if they have *some* knowledge
-of [xarray], but we'll do our best to introduce the concepts. You don't need any
-knowledge of cloud computing or parallel computing with Dask.
+of Python, [pandas] and [xarray], but we'll do our best to introduce the
+concepts. You don't need any knowledge of cloud computing or parallel computing
+with Dask.
 
 If you're new to Python, xarray, or Jupyter, the [Pythia Foundations][foundations] book has a good introduction.
 
-[pc]: https://planetarycomputer.microsoft.com/
-[Pangeo]: https://pangeo.io
+[catalog]: https://planetarycomputer.microsoft.com/catalog
 [foundations]: https://foundations.projectpythia.org/landing-page.html
+[pandas]: https://pandas.pydata.org/]
+[Pangeo]: https://pangeo.io
+[pc]: https://planetarycomputer.microsoft.com/
 [xarray]: https://xarray.pydata.org/
