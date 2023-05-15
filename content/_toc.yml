@@ -4,8 +4,8 @@
 format: jb-book
 root: intro
 chapters:
-- file: noaa-nwm-example
-- file: problems
-- file: using-kerchunk
-- file: timeseries
-- file: nwm-tabular
+- file: 01-noaa-nwm-example
+- file: 02-problems
+- file: 03-using-kerchunk
+- file: 04-timeseries
+- file: 05-tabular
