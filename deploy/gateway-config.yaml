@@ -49,7 +49,7 @@ jupyterhub:
     storage:
       capacity: "15Gi"
 
-    defaultUrl: "/lab/tree/ciroh/01-noaa-nwm-example.ipynb"
+    defaultUrl: "/lab/tree/ciroh/content/01-noaa-nwm-example.ipynb"
     lifecycleHooks:
       postStart:
         exec:
