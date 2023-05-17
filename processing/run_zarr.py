@@ -86,7 +86,7 @@ def main():
 
 
 def fix_time(urls, credential):
-    # not sure what's up here.
+    # https://github.com/pangeo-forge/pangeo-forge-recipes/issues/318
     dates = []
     for url in urls:
         ymd = url[15:23]
