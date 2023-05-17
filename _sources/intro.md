@@ -18,7 +18,7 @@ We hope you'll get a few things out of this workshop:
    geospatial datasets on the cloud.
 4. Learn how the Planetary Computer enables efficient access to these datasets.
 
-## Accessing the Compute
+## Accessing the Compute: <https://aka.ms/ciroh-hub>
 
 This workshop is intended to be interactive! While you can just follow along, we
 really do encourage you to work through the materials along with us. We've
