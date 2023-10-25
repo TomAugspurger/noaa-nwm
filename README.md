@@ -10,10 +10,10 @@ Log into the JupyterHub at <https://ciroh.eastus.cloudapp.azure.com/>.
 
 These notebooks give an overview of national water model data on Azure, and an introduction to cloud-native geospatial data analysis.
 
-1. [Introduction](noaa-nwm-example.ipynb): An overview of the NWM data available on Azure.
-2. [Problems](Problems.ipynb): Some challenges with using NWM data on the cloud.
-3. [Using Kerchunk](using-kerchunk.ipynb): Using Kerchunk to speed up access to NWM data.
-4. [Tabular](nwm-tabular.ipynb): Accessing NWM data as a geoparquet dataset.
+1. [Introduction](content/01-noaa-nwm-example.ipynb): An overview of the NWM data available on Azure.
+2. [Problems](content/02-Problems.ipynb): Some challenges with using NWM data on the cloud.
+3. [Using Kerchunk](content/03-using-kerchunk.ipynb): Using Kerchunk to speed up access to NWM data.
+4. [Tabular](content/04-nwm-tabular.ipynb): Accessing NWM data as a geoparquet dataset.
 
 ## Data Processing
 
